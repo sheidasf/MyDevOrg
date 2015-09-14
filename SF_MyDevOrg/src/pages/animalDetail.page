@@ -25,7 +25,7 @@
               
         <apex:pageBlockSection collapsible="true">
         
-            <apex:outputText value="DOGS ARE GREAT" rendered="{!Animals__c.typeOfAnimal__c ='Dog'}" />
+            <apex:outputText value="DOGS ARE REALLY GREAT" rendered="{!Animals__c.typeOfAnimal__c ='Dog'}" />
         
             <apex:inputField value="{!Animals__c.Name}"/>
             <apex:outputField value="{!Animals__c.Id}"/>
