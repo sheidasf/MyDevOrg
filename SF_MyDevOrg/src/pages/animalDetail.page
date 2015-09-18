@@ -1,0 +1,55 @@
+<apex:page standardController="Animals__c" showHeader="false" standardStylesheets="false">
+
+<head> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"> </script>
+
+</head>
+
+<!-- https://c.na17.visual.force.com/apex/animaldetail?id=a09o0000007FUaf -->
+
+    <c:testComponent /> 
+    
+<apex:form id="myform">
+    <apex:pageBlock title="the pageblock from pluralsight">
+        <hr/>
+        <apex:pageMessages />
+        
+        <apex:pageBlockButtons location="bottom">
+           <apex:commandButton action="{!save}" value="Save My Changes" />    
+           <apex:commandButton action="{!QuickSave}" value="Quick Save My Changes" />   
+        </apex:pageBlockButtons>
+       
+        
+        <hr/>
+              
+        <apex:pageBlockSection collapsible="true">
+        
+            <apex:outputText value="DOGS ARE REALLY GREAT" rendered="{!Animals__c.typeOfAnimal__c ='Dog'}" />
+        
+            <apex:inputField value="{!Animals__c.Name}"/>
+            <apex:outputField value="{!Animals__c.Id}"/>
+            <apex:inputField value="{!Animals__c.typeOfAnimal__c}"/>
+            <apex:outputField value="{!Animals__c.createdDate}"/>
+            <apex:pageBlockSectionItem > 
+                <apex:outputLabel value="Animal name and Type:" for="typeAndName"></apex:outputLabel>
+                <apex:outputText value="{!Animals__c.Name} is a real big {!Animals__c.typeOfAnimal__c}" id="typeAndName"/>
+            </apex:pageBlockSectionItem>
+
+            <apex:outputText value="{0} is a {1}"> 
+                <apex:param value="{!Animals__c.Name}" />
+                <apex:param value="{!Animals__c.typeOfAnimal__c}" />
+            </apex:outputText>
+
+
+        </apex:pageBlockSection>
+        
+        <h2>
+            
+              {! IF (ISBLANK(Animals__c.Name), 'null', 'not null') }
+                          
+        </h2>
+        <hr/>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>
